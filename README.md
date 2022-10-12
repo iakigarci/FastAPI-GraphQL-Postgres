@@ -56,6 +56,83 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+# ScrapAd Backend Assigment
+
+As a marketplace we need to have an effective search engine to be able to offer our products.
+
+Our ads are classified according to their material and composition (metals, plastics, ...).
+
+In this test we want you to implement a textual search engine that allows us to search both in the materials and in the name of the ad, as long as it is available.
+
+## Tasks
+
+The main task is to implement the service for search and the ad detail.
+
+The search will have as parameters the term entered by the user and the pagination (records per page and page number).
+
+You can use REST, GraphQL, GRPC at your choice.
+
+The quality of the code will be a major consideration in the exercise.
+
+### Data Structure
+
+File ad.csv:
+
+- id : UUID
+- name: String
+- amount: Integer
+- price: Integer (Note: the price is multiplied by 100 to avoid decimals. ej : 150 -> 1,5 )
+- material: String
+
+### Search Service
+
+Parms:
+
+- term : Search term , String
+- perPage: Elements per page , Integer
+- nPage: Page to show, Integer
+
+Response body:
+
+```
+{
+    "ads":[
+        {
+            "id":"uuid-ad",
+            "name":"Test Ad",
+            "amount":15,
+            "price": 7,85
+        },...
+    ],
+    "total":"n-total-ad",
+    "current": "current-page",
+    "nextPage": "next-page"
+}
+```
+
+### Detail Service
+
+Parms:
+
+- id: add-uid
+
+Response Body
+
+```
+{
+    "id":"uuid-ad",
+    "name":"Test Ad",
+    "amount":15,
+    "price": 7,85
+    "relatedAds":[{adModel...}] (same material)
+}
+```
+
+## Bonus Tasks
+
+As you have probably observed the data is a bit denormalised, as an bonus task we propose you to normalise the data in an Entity-Relationship model and implement the services with it. You can use any database you want for this purpose.
+
+
 [!alt text]()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
