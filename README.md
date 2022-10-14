@@ -55,9 +55,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-# ScrapAd Backend Assigment
-
 As a marketplace we need to have an effective search engine to be able to offer our products.
 
 Our ads are classified according to their material and composition (metals, plastics, ...).
@@ -84,7 +81,7 @@ File ad.csv:
 - price: Integer (Note: the price is multiplied by 100 to avoid decimals. ej : 150 -> 1,5 )
 - material: String
 
-### Search Service
+*SEARCH SERVICE*
 
 Parms:
 
@@ -110,7 +107,7 @@ Response body:
 }
 ```
 
-### Detail Service
+*DETAIL SERVICE*
 
 Parms:
 
@@ -128,7 +125,7 @@ Response Body
 }
 ```
 
-## Bonus Tasks
+### Bonus Tasks
 
 As you have probably observed the data is a bit denormalised, as an bonus task we propose you to normalise the data in an Entity-Relationship model and implement the services with it. You can use any database you want for this purpose.
 
@@ -139,7 +136,7 @@ As you have probably observed the data is a bit denormalised, as an bonus task w
 
 
 
-### Built With
+## Built With
 
 The technologies used for this project are as follows:
 <p align="left">

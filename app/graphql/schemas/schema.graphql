@@ -1,0 +1,33 @@
+schema {
+    query: Query 
+    mutation: Mutation 
+    subscription: Subscription 
+}
+
+type ad {
+    id: ID!
+    name: String!
+    amount: Int
+    price: Int
+}
+
+type page {
+    ads: [ad]
+    total: Int
+    curentPage: Int
+    nextPage: Int
+}
+
+type Query {
+    storage: page!
+    page(page: Int): page!
+}
+
+type Mutation {
+    addAd(name: String!, amount: Int, price: Int): ad!
+    deleteAd(id: ID!): ad!
+}
+
+type Subscription {
+    adAdded: ad!
+}
