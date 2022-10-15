@@ -7,19 +7,7 @@ Base = declarative_base()
 
 engine = create_engine('postgresql://user:password@localhost:5432/db_scrapad')
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-# class Ad(Base):
-#     __tablename__ = "ads"
 
-#     id = Column(Integer, primary_key=True, index=True)
-#     name = Column(String)
-#     amount = Column(Integer)
-#     price = Column(Integer)
-#     material = Column(String)    
-# ads = [
-#     Ad(id= 4,name="Ad 1", amount="10", price="11", material="material 1"),
-#     Ad(id= 5,name="Ad 2", amount="20", price="22", material="material 2"),
-#     Ad(id= 6,name="Ad 3", amount="30", price="33", material="material 3")
-# ]
 
 # with session_maker() as session:
 #     for ad in ads:

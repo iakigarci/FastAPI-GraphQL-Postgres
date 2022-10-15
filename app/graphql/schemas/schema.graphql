@@ -1,32 +1,57 @@
 schema {
-    query: Query 
-    mutation: Mutation 
-    subscription: Subscription 
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
 }
 
+### TYPES ###
 type ad {
-    id: ID!
-    name: String!
-    amount: Int
-    price: Int
-    material: String!
+  id: ID!
+  name: String
+  amount: Int
+  price: Int
+  material: String
 }
 
+type page {
+  ads: [ad]!
+  total: Int!
+  current: Int!
+  nextPage: Int
+}
+
+### RESULT ###
 type InsertResult {
-  errors: [String]
   id: ID
+  errors: [String]
 }
 
+type GetStorageResult {
+  ads: [ad]
+  errors: [String]
+}
+
+type GetAdResult {
+  ad: ad
+  errors: [String]
+}
+
+type getPageResult {
+  page: page
+  errors: [String]
+}
+
+### ACTIONS ###
 type Query {
-    storage: [ad]!
-    ad(id: Int): ad!
+  getStorage: GetStorageResult!
+  getAd(id: Int): GetAdResult!
+  getPage(term: String!, perPage: Int!, nPage: Int!): getPageResult!
 }
 
 type Mutation {
-    createAd(id: ID!, name: String!, amount: Int, price: Int): InsertResult!
+  createAd(name: String!, amount: Int, price: Int): InsertResult!
 }
 
 type Subscription {
-    adAdded: ad!
+  adAdded: ad!
 }
-

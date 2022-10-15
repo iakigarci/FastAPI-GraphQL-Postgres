@@ -5,10 +5,10 @@ from db import crud
 mutation = ObjectType("Mutation")
 
 @mutation.field("createUser")
-async def resolve_create_ad(obj, info, id, name, amount, price):
+async def resolve_create_ad(obj, info,name, amount, price):
     try:
-        ad_id = await crud.create_ad(id=id, name=name, amount=amount, price=price)
-        return ad_id
+        ad_id = await crud.create_ad(name=name, amount=amount, price=price)
+        return { "id": ad_id }
     except Exception as error:
         return {
             "success": False,

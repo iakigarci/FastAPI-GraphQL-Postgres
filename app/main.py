@@ -14,7 +14,7 @@ app = FastAPI(
     docs_url="/",
 )
 
-resolvers = [mutation]
+resolvers = [mutation, query]
 
 schema = make_executable_schema(type_defs, resolvers)  # type: ignore
 graphql = GraphQL(schema, debug=True)

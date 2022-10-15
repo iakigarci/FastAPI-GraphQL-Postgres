@@ -7,3 +7,20 @@ docker run --name pgadmin4 -p 5051:80 -e "PGADMIN_DEFAULT_EMAIL=inaki.garcianoya
 
 # Alembic commands
 alembic upgrade head
+
+# Activate environment 
+source .venv/Scripts/activate
+
+mutation { 
+  createAd(name: "33333444", amount: 111, price: 122222){
+  	id
+  }
+}
+
+query {
+  getAd(id: 7) {
+    ad {
+      name
+    }
+  }
+}
