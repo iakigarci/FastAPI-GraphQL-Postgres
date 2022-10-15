@@ -1,7 +1,9 @@
 import uvicorn
-from ariadne import QueryType, make_executable_schema, load_schema_from_path
+from ariadne import QueryType, make_executable_schema, load_schema_from_path, snake_case_fallback_resolvers
 from ariadne.asgi import GraphQL
 from fastapi import FastAPI
+from api.queries import query
+from api.mutations import mutation
 
 type_defs = load_schema_from_path("graphql/schemas/schema.graphql")
 
@@ -12,9 +14,9 @@ app = FastAPI(
     docs_url="/",
 )
 
-resolvers = [query]
+resolvers = [mutation]
 
-schema = make_executable_schema(type_defs, resolvers)
+schema = make_executable_schema(type_defs, resolvers)  # type: ignore
 graphql = GraphQL(schema, debug=True)
 schema = make_executable_schema(type_defs, query)
 app.mount("/", graphql)

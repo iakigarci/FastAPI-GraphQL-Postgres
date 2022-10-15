@@ -2,9 +2,16 @@ from typing import Optional
 
 from ariadne import QueryType, convert_kwargs_to_snake_case
 
-from app.db import crud
+from db import crud
 
-async def resolve_blogs(obj, info, skip: Optional[int] = 0, limit: Optional[int] = 100):
-    storage = await crud.get_blogs(skip=skip, limit=limit)
+async def resolve_ad(obj, info, **kwargs):
+    # result = crud.get_ad(kwargs["id"])
+    return {"adaaas": 11}
 
-    return {"blogs": storage}
+async def resolve_storage(obj, info):
+    storage = crud.get_storage()
+    return {"ads": storage}
+
+query = QueryType()
+query.set_field("storage", resolve_storage)
+query.set_field("ad", resolve_ad)

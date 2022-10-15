@@ -9,24 +9,26 @@ type ad {
     name: String!
     amount: Int
     price: Int
-    material: String!
 }
 
-type InsertResult {
-  errors: [String]
-  id: ID
+type page {
+    ads: [ad]
+    total: Int
+    curentPage: Int
+    nextPage: Int
 }
 
 type Query {
-    storage: [ad]!
-    ad(id: Int): ad!
+    storage: page!
+    page(page: Int): page!
+    ad:ad
 }
 
 type Mutation {
-    createAd(name: String!, amount: Int, price: Int): InsertResult!
+    addAd(name: String!, amount: Int, price: Int): ad!
+    deleteAd(id: ID!): ad!
 }
 
 type Subscription {
     adAdded: ad!
 }
-
