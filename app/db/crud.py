@@ -12,13 +12,17 @@ async def create_ad(name: str, amount: int, price: int) -> int:
     to_create = Ad(name=name, amount=amount, price=price)
     db.add(to_create)
     db.commit()
-    return to_create.id  # type: ignore
+    return to_create.uuid  # type: ignore
 
-async def get_ad(id: int) -> Ad:
-    return db.query(Ad).filter(Ad.id == id).first()  # type: ignore
+async def get_ad(uuid: str) -> Ad:
+    return db.query(Ad).filter(Ad.uuid == uuid).first()  # type: ignore
 
 async def get_storage() -> Optional[Dict]:
     return db.query(Ad).all()  # type: ignore
 
 async def get_page(term: str, perPage: int, nPage: int) -> Optional[Dict]:
     return db.query(Ad).filter(Ad.name.contains(term)).limit(perPage).offset(nPage * perPage).all()  # type: ignore
+
+async def get_related_ads(uuid: str) -> Optional[Dict]:
+    material = db.query(Ad).filter(Ad.uuid == uuid).first()  # type: ignore
+    return db.query(Ad).filter(Ad.material == material.material).all()  # type: ignore

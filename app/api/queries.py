@@ -3,17 +3,18 @@ from ariadne import QueryType, convert_kwargs_to_snake_case
 
 from db import crud
 
+def get_error(error):
+    return {
+        "success": False,
+        "errors": [str(error)]
+    }
 
 async def resolve_storage(obj, info):
     try:
         storage = await crud.get_storage()
         return {"ads": storage}
     except Exception as error:
-        return {
-            "success": False,
-            "errors": [str(error)]
-        }
-
+        return get_error(error)
 
 async def resolve_ad(obj, info, id):
     try:
@@ -22,10 +23,7 @@ async def resolve_ad(obj, info, id):
             raise Exception("Ad not found")
         return {"ad": ad}
     except Exception as error:
-        return {
-            "success": False,
-            "errors": [str(error)]
-        }
+        return get_error(error)
 
 async def resolve_page(obj, info, term, perPage, nPage):
     try:
@@ -42,12 +40,23 @@ async def resolve_page(obj, info, term, perPage, nPage):
             "page": page
         }
     except Exception as error:
+        return get_error(error)
+
+async def resolve_detail(obj, info, id):
+    try:
+        ad = await crud.get_ad(id)
+        related_ads = await crud.get_related_ads(id)
+        if not ad and not related_ads:
+            raise Exception("Page not found")
         return {
-            "success": False,
-            "errors": [str(error)]
+            "ad": ad,
+            "related_ads": related_ads
         }
+    except Exception as error:
+        return get_error(error)
 
 query = QueryType()
 query.set_field("getStorage", resolve_storage)
 query.set_field("getAd", resolve_ad)
 query.set_field("getPage", resolve_page)
+query.set_field("getDetail", resolve_detail)
