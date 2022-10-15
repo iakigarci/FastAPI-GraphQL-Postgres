@@ -23,7 +23,7 @@ type Query {
 }
 
 type Mutation {
-    createAd(name: String!, amount: Int, price: Int): InsertResult!
+    createAd(id: ID!, name: String!, amount: Int, price: Int): InsertResult!
 }
 
 type Subscription {
