@@ -31,7 +31,7 @@ async def get_ad(id: str):
 async def get_page(term: str, per_page: int, page: int):
     try:
         ads = crud_handler.get_page(term, per_page, page)  # type: ignore
-        # check if there is a next page. 
+        # check if there is a next page.  
         next_page = page + 1 if (len(ads) / per_page) >= page else None
         result = {
             "ads": ads,
