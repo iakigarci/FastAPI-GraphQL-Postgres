@@ -55,7 +55,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-As a marketplace we need to have an effective search engine to be able to offer our products.
+aaaaaaaaaaaaaaAs a marketplace we need to have an effective search engine to be able to offer our products.
 
 Our ads are classified according to their material and composition (metals, plastics, ...).
 
