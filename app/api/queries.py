@@ -55,6 +55,7 @@ async def resolve_detail(obj, info, id):
     except Exception as error:
         return get_error(error)
 
+### QUERIES ###
 query = QueryType()
 query.set_field("getStorage", resolve_storage)
 query.set_field("getAd", resolve_ad)

@@ -12,21 +12,49 @@ alembic upgrade head
 # Activate environment 
 source .venv/Scripts/activate
 
+# Graphql queries
 mutation { 
   createAd(name: "33333444", amount: 111, price: 122222){
-  	id
+  	  uuid
+      name
+      price
+      amount
+      material
   }
 }
 
 query {
   getAd(id: "2390a967-4aa4-4c74-ab14-005ee609d546") {
     ad {
+      uuid
       name
+      price
+      amount
+      material
     }
   }
 }
 
-# Add users to the database
+query {
+  getDetail(id: "25393260-f0d0-47e9-899f-2aefa5c6fcff") {
+    ad {
+      uuid
+      name
+      price
+      amount
+      material
+    }
+    relatedads {
+      uuid
+      name
+      price
+      amount
+      material
+    }
+  }
+}
+
+# Add users to the database (SQL)
 INSERT INTO ads(uuid,"name",amount,price,material) VALUES ('25393260-f0d0-47e9-899f-2aefa5c6fcff','Vendo cobre',12,180,'cobre');
 INSERT INTO ads(uuid,"name",amount,price,material) VALUES ('b434b963-ad9f-47db-b22e-e8d5c04d4e70','Lingotes de cobre',10,1500,'cobre');
 INSERT INTO ads(uuid,"name",amount,price,material) VALUES ('b434b963-ad9f-47db-b22e-e8d5c04d4e70','Lingotes de cobre',10,1500,'lingotes');

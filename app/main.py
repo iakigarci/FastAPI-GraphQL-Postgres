@@ -16,7 +16,7 @@ app = FastAPI(
 
 resolvers = [mutation, query]
 
-schema = make_executable_schema(type_defs, resolvers)  # type: ignore
+schema = make_executable_schema(type_defs, resolvers)
 graphql = GraphQL(schema, debug=True)
 schema = make_executable_schema(type_defs, query)
 app.mount("/", graphql)
