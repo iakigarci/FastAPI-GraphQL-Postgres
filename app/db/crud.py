@@ -23,6 +23,6 @@ async def get_storage() -> Optional[Dict]:
 async def get_page(term: str, perPage: int, nPage: int) -> Optional[Dict]:
     return db.query(Ad).filter(Ad.name.contains(term)).limit(perPage).offset(nPage * perPage).all()  # type: ignore
 
-async def get_related_ads(uuid: str) -> Optional[Dict]:
-    material = db.query(Ad).filter(Ad.uuid == uuid).first()  # type: ignore
-    return db.query(Ad).filter(Ad.material == material.material).all()  # type: ignore
+async def get_related_ads(id: str):
+    material = db.query(Ad).filter(Ad.uuid == id).first()  # type: ignore
+    return db.query(Ad).filter(Ad.uuid != id, Ad.material == material.material).all()  # type: ignore

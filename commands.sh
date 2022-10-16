@@ -19,7 +19,7 @@ mutation {
 }
 
 query {
-  getAd(id: 7) {
+  getAd(id: "2390a967-4aa4-4c74-ab14-005ee609d546") {
     ad {
       name
     }

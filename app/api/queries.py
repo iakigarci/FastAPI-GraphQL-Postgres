@@ -45,12 +45,12 @@ async def resolve_page(obj, info, term, perPage, nPage):
 async def resolve_detail(obj, info, id):
     try:
         ad = await crud.get_ad(id)
-        related_ads = await crud.get_related_ads(id)
-        if not ad and not related_ads:
-            raise Exception("Page not found")
+        related_ads = await crud.get_related_ads(ad.uuid)  # type: ignore
+        if not ad:
+            raise Exception("Ad not found")
         return {
             "ad": ad,
-            "related_ads": related_ads
+            "relatedads": related_ads
         }
     except Exception as error:
         return get_error(error)

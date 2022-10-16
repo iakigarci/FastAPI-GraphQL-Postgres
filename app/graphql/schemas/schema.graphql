@@ -21,8 +21,8 @@ type page {
 }
 
 type detail {
-  ad: ad!,
-  relatedAds: [ad]!
+  ad: ad!
+  relatedads: [ad]
 }
 
 ### RESULT ###
@@ -36,13 +36,14 @@ type GetStorageResult {
   errors: [String]
 }
 
-type GetAdResult {
-  ad: ad
-  errors: [String]
-}
 
 type GetPageResult {
   page: page
+  errors: [String]
+}
+
+type GetAdResult {
+  ad: ad
   errors: [String]
 }
 
@@ -54,9 +55,9 @@ type GetDetailResult {
 ### ACTIONS ###
 type Query {
   getStorage: GetStorageResult!
-  getAd(id: String!): GetAdResult!
   getPage(term: String!, perPage: Int!, nPage: Int!): GetPageResult!
-  getDetail(id: String!): GetDetailResult!
+  getAd(id: String!): GetAdResult!
+  getDetail(id: String!): detail!
 }
 
 type Mutation {
