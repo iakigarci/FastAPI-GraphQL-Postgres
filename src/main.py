@@ -3,8 +3,8 @@ from unittest import result
 from fastapi import FastAPI, HTTPException
 from db.crud import Crud
 
-crud_handler : Crud = Crud()
 app = FastAPI()
+crud_handler : Crud = Crud()
 
 @app.get("/")
 async def root():
@@ -31,6 +31,8 @@ async def get_ad(id: str):
 async def get_page(term: str, per_page: int, page: int):
     try:
         ads = crud_handler.get_page(term, per_page, page)  # type: ignore
+        if ads == []:
+            raise HTTPException(status_code=404, detail="Ads not found")
         # check if there is a next page.  
         next_page = page + 1 if (len(ads) / per_page) >= page else None
         result = {
@@ -41,4 +43,22 @@ async def get_page(term: str, per_page: int, page: int):
         }
         return result
     except:
-        raise HTTPException(status_code=404, detail="Item not found")
+        raise HTTPException(status_code=404, detail="Page not found")
+
+@app.get("/ads/{id}")
+async def get_ad_detail(id: str):
+    try:
+        ad = crud_handler.get_ad(id)  # type: ignore
+        if ad == {}:  # type: ignore
+            raise HTTPException(status_code=404, detail="Ad not found")
+        data = crud_handler.get_related_ads(ad)  # type: ignore
+        result = {
+            "id": ad.get("id"),
+            "name": ad.get("name"),
+            "amount": ad.get("amount"),
+            "price": ad.get("price"),
+            "relatedAds": data
+        }
+        return result
+    except:
+        raise HTTPException(status_code=404, detail="Detail not found")

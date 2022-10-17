@@ -30,3 +30,9 @@ class Crud:
         ads = [ad for ad in data if term.lower() in ad['name'].lower()]
         page_result = ads[per_page*(page-1):per_page*page]
         return page_result  # type: ignore
+
+    # function to get related ads by material from an id, from ad.csv file and return as a json
+    def get_related_ads(self, ad_related: Dict) -> Dict:
+        data = self.get_all_data()
+        ads = [ad for ad in data if ad_related['material'] == ad['material'] and ad_related['id'] != ad['id']]
+        return ads  # type: ignore
