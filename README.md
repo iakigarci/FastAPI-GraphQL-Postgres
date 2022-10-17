@@ -3,10 +3,10 @@
 <br />
 <div align="center">
 
-  <h1 align="center">Best-README-Template</h1>
+  <h1 align="center">Technical Interview Project</h1>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Marketplace created with FastAPI and CSV as database
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <!--<br />
@@ -47,7 +47,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -171,7 +170,7 @@ The technologies used for this project are as follows:
 
 Check if you have Python installed. For this project, Python version 3.7 has been used.
 * python
-  ```sh
+  ```py
   python --version // Windows
   python3 --version // UNIX
   ```
@@ -189,7 +188,7 @@ Check if you have Python installed. For this project, Python version 3.7 has bee
    python3 venv .venv // Unix
    ```
 3. Activate the virtual environment
-   ```py
+   ```sh
    source .venv/Scripts/activate
    ```
 4. Install project dependencies from `requirements.txt` file
