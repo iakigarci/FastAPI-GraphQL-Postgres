@@ -55,7 +55,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-aaaaaaaaaaaaaaAs a marketplace we need to have an effective search engine to be able to offer our products.
+As a marketplace we need to have an effective search engine to be able to offer our products.
 
 Our ads are classified according to their material and composition (metals, plastics, ...).
 
@@ -130,7 +130,6 @@ Response Body
 As you have probably observed the data is a bit denormalised, as an bonus task we propose you to normalise the data in an Entity-Relationship model and implement the services with it. You can use any database you want for this purpose.
 
 
-[!alt text]()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -153,8 +152,8 @@ The technologies used for this project are as follows:
 <!-- TS <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" height="40"/>-->
 <!-- React <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" height="40"/>-->
 <!-- Mongo <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="40" height="40"/>-->
-<!-- PYTHON <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40"/>-->
-<!--  <img src="" width="40" height="40"/>-->
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40" height="40"/>
 <!--  <img src="" width="40" height="40"/>-->
 <!--  <img src="" width="40" height="40"/>-->
 <!--  <img src="" width="40" height="40"/>-->
@@ -168,31 +167,34 @@ The technologies used for this project are as follows:
 ## Getting Started
 
 
-
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Check if you have Python installed. For this project, Python version 3.7 has been used.
+* python
   ```sh
-  npm install npm@latest -g
+  python --version // Windows
+  python3 --version // UNIX
   ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repository
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/iakigarci/TechnicalInterview1.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
+2. Create Python virtual environmet
+   ```py
+   python vevn .venv // Windows
+   python3 venv .venv // Unix
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Activate the virtual environment
+   ```py
+   source .venv/Scripts/activate
+   ```
+4. Install project dependencies from `requirements.txt` file
+   ```py
+   pip install -r requirements.txt
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -202,10 +204,16 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Follow these steps after performing the installation steps:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+1. Start the server with _uvicorn_
+   ```sh
+   cd src
+   uvicorn main:app --reload
+   ```
+2. Go to [localhost:8000/docs](localhost:8000/docs) or [127.0.0.1:8000/docs](127.0.0.1:8000/docs)
 
+![Docs homepage](example.PNG)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -259,20 +267,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Iñaki García : inaki.garcianoya@gmail.com
 
-Project Link: [https://github.com/iakigarci/repo_name](https://github.com/iakigarci/repo_name)
+Project Link: [https://github.com/iakigarci/TechnicalInterview1](https://github.com/iakigarci/TechnicalInterview1)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-During this project, knowledge has been acquired that will be important for the future. Listed here are the resources that have been used in order to successfully complete this project:
-
-* [Choose an Open Source License](https://choosealicense.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTORS -->
 <!--

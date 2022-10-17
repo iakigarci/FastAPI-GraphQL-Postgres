@@ -1,0 +1,11 @@
+[
+    {
+        "name": "ad",
+        "description": "Manage items, with service and detail queries"
+    },
+    {
+        "name": "storage",
+        "description": "Operations to manage all data from the database"
+    }
+]
+
