@@ -170,8 +170,8 @@ The technologies used for this project are as follows:
 Check if you have Python installed. For this project, Python version 3.7 has been used.
 * python
   ```py
-  python --version // Windows
-  python3 --version // UNIX
+  python --version # Windows
+  python3 --version # UNIX
   ```
 
 ### Installation
@@ -184,8 +184,8 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 2. Create Python virtual environmet
    ```py
-   python vevn .venv // Windows
-   python3 venv .venv // Unix
+   python vevn .venv # Windows
+   python3 venv .venv # Unix
    ```
 3. Activate the virtual environment
    ```sh
@@ -197,8 +197,8 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 5. Start Docker containers
 6. ```sh
-7. docker compose up
-8. docker ps // List containers, there must be 2
+   docker compose up
+   docker ps # List containers, there must be 2
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -211,12 +211,13 @@ _Below is an example of how you can instruct your audience on installing and set
 Follow these steps after performing the installation steps:
 
 1. Check that PostgreSQL is running. Go to [localhost:5050](localhost:5050)
+![PG4Admin homepage](utils/pg4admin.PNG)
 2. Start the server with _uvicorn_
    ```sh
    cd src
    uvicorn main:app --reload
    ```
-3. Go to [localhost:8000/docs](localhost:8000/docs) or [127.0.0.1:8000/docs](127.0.0.1:8000/docs)
+3. Go to [localhost:8000/graphql](localhost:8000/graphql)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -271,20 +272,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Iñaki García : inaki.garcianoya@gmail.com
 
-Project Link: [https://github.com/iakigarci/repo_name](https://github.com/iakigarci/repo_name)
+Project Link: [https://github.com/iakigarci/TechnicalInterview1](https://github.com/iakigarci/TechnicalInterview1)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-During this project, knowledge has been acquired that will be important for the future. Listed here are the resources that have been used in order to successfully complete this project:
-
-* [Choose an Open Source License](https://choosealicense.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTORS -->
 <!--
