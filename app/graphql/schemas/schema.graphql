@@ -31,11 +31,15 @@ type InsertResult {
   errors: [String]
 }
 
+type DeleteResult {
+  success: String
+  errors: [String]
+}
+
 type GetStorageResult {
   ads: [ad]
   errors: [String]
 }
-
 
 type GetPageResult {
   page: page
@@ -61,7 +65,9 @@ type Query {
 }
 
 type Mutation {
-  createAd(name: String!, amount: Int, price: Int): InsertResult!
+  createAd(uuid: String!, name: String!, amount: Int, price: Int, material: String!): InsertResult!
+  deleteAd(uuid: String!): DeleteResult!
+  updateAd(updateid: String!, uuid: String!, name: String!, amount: Int, price: Int, material: String!): InsertResult!
 }
 
 type Subscription {

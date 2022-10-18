@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from api.queries import query
 from api.mutations import mutation
 
-type_defs = load_schema_from_path("graphql/schemas/schema.graphql")
+type_defs = load_schema_from_path("graphql/schemas/schema.graphql") # Load schema from file, should go in a config file
 
 app = FastAPI(
     title="ScrapAD",
