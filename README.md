@@ -157,6 +157,10 @@ The technologies used for this project are as follows:
 <!--  <img src="" width="40" height="40"/>-->
 </p>      
 
+<p align="center">
+  <img src="utils/diagram.png" />
+</p>
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
