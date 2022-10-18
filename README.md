@@ -3,12 +3,11 @@
 <br />
 <div align="center">
 
-  <h1 align="center">Best-README-Template</h1>
+  <h1 align="center">Technical Interview Project-</h1>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Marketplace created with FastAPI, GraphQL, Docker and PostgreSQL as database
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <!--<br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
@@ -47,7 +46,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -130,8 +128,6 @@ Response Body
 As you have probably observed the data is a bit denormalised, as an bonus task we propose you to normalise the data in an Entity-Relationship model and implement the services with it. You can use any database you want for this purpose.
 
 
-[!alt text]()
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -144,7 +140,7 @@ The technologies used for this project are as follows:
   
 <!-- AWS <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" width="40" height="40"/>-->
 <!-- BASH <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" width="40" height="40"/>-->     
-<!-- DOCKER <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" height="40"/>-->
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" height="40"/>
 <!-- KUBERNETS  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="40" height="40"/>-->
 <!-- JAVA <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40"/>-->
 <!-- JS <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40"/>-->
@@ -153,11 +149,11 @@ The technologies used for this project are as follows:
 <!-- TS <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" height="40"/>-->
 <!-- React <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" height="40"/>-->
 <!-- Mongo <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="40" height="40"/>-->
-<!-- PYTHON <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40"/>-->
-<!--  <img src="" width="40" height="40"/>-->
-<!--  <img src="" width="40" height="40"/>-->
-<!--  <img src="" width="40" height="40"/>-->
-<!--  <img src="" width="40" height="40"/>-->
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" width="40" height="40"/>
 <!--  <img src="" width="40" height="40"/>-->
 </p>      
 
@@ -171,28 +167,38 @@ The technologies used for this project are as follows:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
+Check if you have Python installed. For this project, Python version 3.7 has been used.
+* python
+  ```py
+  python --version // Windows
+  python3 --version // UNIX
   ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repository
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/iakigarci/TechnicalInterview1.git
    ```
-3. Install NPM packages
+2. Create Python virtual environmet
+   ```py
+   python vevn .venv // Windows
+   python3 venv .venv // Unix
+   ```
+3. Activate the virtual environment
    ```sh
-   npm install
+   source .venv/Scripts/activate
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Install project dependencies from `requirements.txt` file
+   ```py
+   pip install -r requirements.txt
+   ```
+5. Start Docker containers
+6. ```sh
+7. docker compose up
+8. docker ps // List containers, there must be 2
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -202,9 +208,15 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Follow these steps after performing the installation steps:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+1. Check that PostgreSQL is running. Go to [localhost:5050](localhost:5050)
+2. Start the server with _uvicorn_
+   ```sh
+   cd src
+   uvicorn main:app --reload
+   ```
+3. Go to [localhost:8000/docs](localhost:8000/docs) or [127.0.0.1:8000/docs](127.0.0.1:8000/docs)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
