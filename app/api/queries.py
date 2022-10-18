@@ -1,5 +1,6 @@
-from typing import Optional, Type
+from typing import Dict, Optional, Type
 from ariadne import QueryType, convert_kwargs_to_snake_case
+from app.db.models import Ad
 
 from db import crud
 
@@ -28,13 +29,14 @@ async def resolve_ad(obj, info, id):
 async def resolve_page(obj, info, term, perPage, nPage):
     try:
         ads = await crud.get_page(term, perPage, nPage)
-        if not ads:
-            raise Exception("Page not found")
+        if len(ads) == 0:  # type: ignore
+            return get_error("No ads found")
+        next_page = nPage + 1 if (len(ads) / perPage) >= nPage else None  # type: ignore
         page = {
             "ads": ads,
-            "total": len(ads),
+            "total": len(ads),  # type: ignore
             "current": nPage,
-            "nextPage": nPage + 1
+            "nextPage": next_page
         }
         return {
             "page": page
