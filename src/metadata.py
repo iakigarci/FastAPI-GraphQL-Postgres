@@ -2,7 +2,6 @@
 import json
 from typing import Dict
 
-
 class Metadata(object):
     def __init__(self):
         try:
