@@ -21,8 +21,9 @@ type page {
 }
 
 type detail {
-  ad: ad!
+  ad: ad
   relatedads: [ad]
+  errors: [String]
 }
 
 ### RESULT ###

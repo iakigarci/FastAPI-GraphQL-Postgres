@@ -171,7 +171,7 @@ The technologies used for this project are as follows:
 
 ### Prerequisites
 
-Check if you have Python installed. For this project, Python version 3.7 has been used.
+Check if you have Python installed. For this project, *Python version 3.7* has been used.
 * python
   ```py
   python --version # Windows
@@ -200,7 +200,7 @@ _Below is an example of how you can instruct your audience on installing and set
    pip install -r requirements.txt
    ```
 5. Start Docker containers
-6. ```sh
+   ```sh
    docker compose up
    docker ps # List containers, there must be 2
    ```

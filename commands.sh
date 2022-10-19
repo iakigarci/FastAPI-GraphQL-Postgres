@@ -32,11 +32,12 @@ query {
       amount
       material
     }
+    errors
   }
 }
 
 query {
-  getDetail(id: "25393260-f0d0-47e9-899f-2aefa5c6fcff") {
+  getDetail(id: "f0d0-47e9-899f-2aefa5c6fcff") {
     ad {
       uuid
       name
@@ -51,6 +52,22 @@ query {
       amount
       material
     }
+    errors
+  }
+}
+
+query {
+  getPage(term: "Alumnio con zinc en lingotes", perPage: 2, nPage:1) {
+    page {
+      ads {
+        uuid
+        material
+      }
+      total
+      current
+      nextPage
+    }
+    errors
   }
 }
 

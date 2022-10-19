@@ -1,6 +1,6 @@
 from typing import Dict, Optional, Type
 from ariadne import QueryType, convert_kwargs_to_snake_case
-from app.db.models import Ad
+from db.models import Ad
 
 from db import crud
 
@@ -47,9 +47,12 @@ async def resolve_page(obj, info, term, perPage, nPage):
 async def resolve_detail(obj, info, id):
     try:
         ad = await crud.get_ad(id)
-        related_ads = await crud.get_related_ads(ad.uuid)  # type: ignore
+        print(ad.name)
         if not ad:
             raise Exception("Ad not found")
+        related_ads = await crud.get_related_ads(ad.uuid)  # type: ignore
+        if not related_ads:
+            raise Exception("No related ads found")
         return {
             "ad": ad,
             "relatedads": related_ads
